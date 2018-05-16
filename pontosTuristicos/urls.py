@@ -24,7 +24,8 @@ from rest_framework.authtoken import views
 from django.conf import settings
 from django.conf.urls.static import static
 ##
-
+from core import views as testeView
+##
 from core.api.viewsets import PontoTuristicoViewSet
 from atracoes.api.viewsets import AtracaoViewSet
 from core.models import PontoTuristico
@@ -42,5 +43,6 @@ router.register(r'avaliacoes', AvaliacaoViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api-token-auth/', views.obtain_auth_token)
+    path('api-token-auth/', views.obtain_auth_token),
+    path('teste/',testeView.listar),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

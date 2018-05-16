@@ -1,4 +1,4 @@
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import TokenAuthentication, BasicAuthentication
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -12,7 +12,7 @@ class PontoTuristicoViewSet (ModelViewSet):
     filter_backends = (SearchFilter,)
     # permission_classes = (IsAdminUser,)
     permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
+    authentication_classes = (TokenAuthentication,BasicAuthentication,)
     search_fields = ('nome', 'descricao', 'endereco__linha1')
 
     #alterar o lookup field padrão do api
